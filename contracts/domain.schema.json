@@ -1,0 +1,69 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "节庆展陈授权履约簿领域事件",
+  "type": "object",
+  "required": [
+    "event_id",
+    "event_type",
+    "aggregate_type",
+    "aggregate_id",
+    "occurred_at",
+    "version",
+    "payload"
+  ],
+  "properties": {
+    "event_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "event_type": {
+      "type": "string",
+      "enum": [
+        "LICENSE_GRANTED",
+        "USE_RECORDED",
+        "EVENT_FROZEN",
+        "LICENSE_WITHDRAWN",
+        "REMOVAL_CONFIRMED"
+      ]
+    },
+    "aggregate_type": {
+      "type": "string",
+      "enum": [
+        "asset_license",
+        "event_release",
+        "partner_use",
+        "removal_case"
+      ]
+    },
+    "aggregate_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "occurred_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "version": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "payload": {
+      "type": "object"
+    }
+  },
+  "payload_required_by_event": {
+    "LICENSE_GRANTED": [
+      "right_holder",
+      "scope"
+    ],
+    "EVENT_FROZEN": [
+      "release_version",
+      "frozen_at"
+    ],
+    "LICENSE_WITHDRAWN": [
+      "effective_at",
+      "reason"
+    ]
+  },
+  "additionalProperties": false
+}

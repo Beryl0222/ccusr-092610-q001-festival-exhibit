@@ -1,0 +1,12 @@
+{
+  "event_id": "092601-001-sample-001",
+  "event_type": "LICENSE_GRANTED",
+  "aggregate_type": "asset_license",
+  "aggregate_id": "festival_exhibit-001",
+  "occurred_at": "2026-09-25T10:00:00+08:00",
+  "version": 1,
+  "payload": {
+    "right_holder": "sample-right_holder",
+    "scope": "sample-scope"
+  }
+}
